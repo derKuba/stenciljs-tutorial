@@ -1,46 +1,46 @@
-import { AppProfile } from './app-profile';
-import { newSpecPage } from '@stencil/core/testing';
+import { AppProfile } from "./app-profile";
+import { newSpecPage } from "@stencil/core/testing";
 
-describe('app-profile', () => {
-  describe('normalization', () => {
-    it('returns a blank string if the name is undefined', async () => {
+describe("app-profile", () => {
+  describe("normalization", () => {
+    it("returns a blank string if the name is undefined", async () => {
       const { rootInstance } = await newSpecPage({
         components: [AppProfile],
-        html: '<app-profile></app-profile>',
+        html: "<app-profile></app-profile>",
       });
-      expect(rootInstance.normalize(undefined)).toEqual('');
+      expect(rootInstance.normalize(undefined)).toEqual("");
     });
 
-    it('returns a blank string if the name is null', async () => {
+    it("returns a blank string if the name is null", async () => {
       const { rootInstance } = await newSpecPage({
         components: [AppProfile],
-        html: '<app-profile></app-profile>',
+        html: "<app-profile></app-profile>",
       });
-      expect(rootInstance.normalize(null)).toEqual('');
+      expect(rootInstance.normalize(null)).toEqual("");
     });
 
-    it('capitalizes the first letter', async () => {
+    it("capitalizes the first letter", async () => {
       const { rootInstance } = await newSpecPage({
         components: [AppProfile],
-        html: '<app-profile></app-profile>',
+        html: "<app-profile></app-profile>",
       });
-      expect(rootInstance.normalize('quincy')).toEqual('Quincy');
+      expect(rootInstance.normalize("quincy")).toEqual("Quincy");
     });
 
-    it('lower-cases the following letters', async () => {
+    it("lower-cases the following letters", async () => {
       const { rootInstance } = await newSpecPage({
         components: [AppProfile],
-        html: '<app-profile></app-profile>',
+        html: "<app-profile></app-profile>",
       });
-      expect(rootInstance.normalize('JOSEPH')).toEqual('Joseph');
+      expect(rootInstance.normalize("JOSEPH")).toEqual("Joseph");
     });
 
-    it('handles single letter names', async () => {
+    it("handles single letter names", async () => {
       const { rootInstance } = await newSpecPage({
         components: [AppProfile],
-        html: '<app-profile></app-profile>',
+        html: "<app-profile></app-profile>",
       });
-      expect(rootInstance.normalize('q')).toEqual('Q');
+      expect(rootInstance.normalize("q")).toEqual("Q");
     });
   });
 });

@@ -1,0 +1,11 @@
+node_modules
+dist
+www
+build
+public
+node_modules
+coverage
+*.svg
+
+# This file is changed by the stencil compiler
+src/components.d.ts

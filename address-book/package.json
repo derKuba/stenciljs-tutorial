@@ -5,6 +5,7 @@
   "description": "Stencil App Starter",
   "scripts": {
     "build": "stencil build",
+    "prettier": "prettier --write src",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -12,7 +13,9 @@
   },
   "devDependencies": {
     "@stencil/core": "^2.0.0",
-    "@stencil/router": "^1.0.1"
+    "@stencil/router": "^1.0.1",
+    "eslint": "^7.27.0",
+    "prettier": "2.3.0"
   },
   "license": "MIT"
 }
