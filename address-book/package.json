@@ -6,6 +6,7 @@
   "scripts": {
     "build": "stencil build",
     "prettier": "prettier --write src",
+    "eslint": "eslint --ext .tsx --ext .ts src/ --fix",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -13,9 +14,25 @@
   },
   "devDependencies": {
     "@stencil/core": "^2.0.0",
+    "@stencil/eslint-plugin": "^0.3.1",
     "@stencil/router": "^1.0.1",
-    "eslint": "^7.27.0",
-    "prettier": "2.3.0"
+    "@types/jest": "^26.0.21",
+    "@types/puppeteer": "^5.4.3",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "prettier": "2.3.0",
+    "puppeteer": "^5.5.0",
+    "typescript": "^4.3.2"
   },
   "license": "MIT"
 }

@@ -17,9 +17,10 @@ export class AppProfile {
   }
 
   render() {
+    const test = "HALLO";
     if (this.match && this.match.params.name) {
       return (
-        <div class="app-profile">
+        <div className="app-profile">
           <p>
             Hello! My name is {this.normalize(this.match.params.name)}. My name
             was passed in through a route param!
