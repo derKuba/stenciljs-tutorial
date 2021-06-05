@@ -8,7 +8,7 @@ import { Component, h } from "@stencil/core";
 export class AppHome {
   render() {
     return (
-      <div className="app-home">
+      <div class="app-home">
         <p>
           Welcome to the Stencil App Starter. You can use this starter to build
           entire apps all with web components using Stencil! Check out our docs
