@@ -14,6 +14,12 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface KubaAddressForm {
+    }
+    interface KubaButton {
+    }
+    interface KubaInput {
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -34,10 +40,31 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLKubaAddressFormElement extends Components.KubaAddressForm, HTMLStencilElement {
+    }
+    var HTMLKubaAddressFormElement: {
+        prototype: HTMLKubaAddressFormElement;
+        new (): HTMLKubaAddressFormElement;
+    };
+    interface HTMLKubaButtonElement extends Components.KubaButton, HTMLStencilElement {
+    }
+    var HTMLKubaButtonElement: {
+        prototype: HTMLKubaButtonElement;
+        new (): HTMLKubaButtonElement;
+    };
+    interface HTMLKubaInputElement extends Components.KubaInput, HTMLStencilElement {
+    }
+    var HTMLKubaInputElement: {
+        prototype: HTMLKubaInputElement;
+        new (): HTMLKubaInputElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "kuba-address-form": HTMLKubaAddressFormElement;
+        "kuba-button": HTMLKubaButtonElement;
+        "kuba-input": HTMLKubaInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -48,10 +75,20 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface KubaAddressForm {
+    }
+    interface KubaButton {
+    }
+    interface KubaInput {
+        "onInputEvent"?: (event: CustomEvent<any>) => void;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "kuba-address-form": KubaAddressForm;
+        "kuba-button": KubaButton;
+        "kuba-input": KubaInput;
     }
 }
 export { LocalJSX as JSX };
@@ -61,6 +98,9 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "kuba-address-form": LocalJSX.KubaAddressForm & JSXBase.HTMLAttributes<HTMLKubaAddressFormElement>;
+            "kuba-button": LocalJSX.KubaButton & JSXBase.HTMLAttributes<HTMLKubaButtonElement>;
+            "kuba-input": LocalJSX.KubaInput & JSXBase.HTMLAttributes<HTMLKubaInputElement>;
         }
     }
 }
