@@ -11,7 +11,9 @@ export class KubaButton {
   render() {
     return (
       <Host>
-        <button onClick={this.handleSubmit}> speichern</button>
+        <button onClick={this.handleSubmit}>
+          <slot/>
+        </button>
       </Host>
     );
   }

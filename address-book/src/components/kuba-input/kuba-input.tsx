@@ -12,7 +12,7 @@ export class KubaInput {
 
   @Prop() inputType: "text" | "number" = "text";
 
-  @Event({ bubbles: true }) inputEvent: EventEmitter;
+  @Event() inputEvent: EventEmitter;
 
   private onInput = (event) => {
     this.inputEvent.emit({ value: event.target.value });

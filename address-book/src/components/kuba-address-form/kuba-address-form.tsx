@@ -22,11 +22,11 @@ export class KubaAddressForm {
       <Host>
         <h2>Adress-Formular</h2>
         <kuba-input
-          component-id="name"
+          componentId="name"
           label="Name:"
           onInputEvent={this.onChange}
         ></kuba-input>
-        <kuba-button handleSubmit={this.onSubmit}></kuba-button>
+        <kuba-button handleSubmit={this.onSubmit}>speichern</kuba-button>
         <hr />
         <h3>Eingegebene Daten:</h3>
         Name: {this.innerText}
