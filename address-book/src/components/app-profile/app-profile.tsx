@@ -9,8 +9,8 @@ import { MatchResults } from "@stencil/router";
 export class AppProfile {
   @Prop() match: MatchResults;
 
-  normalize(name: string): string {
-    if (name) {
+  private normalize(name: string): string {
+    if (name && name.length > 0) {
       return name.substr(0, 1).toUpperCase() + name.substr(1).toLowerCase();
     }
     return "";

@@ -17,8 +17,12 @@ export namespace Components {
     interface KubaAddressForm {
     }
     interface KubaButton {
+        "handleSubmit": any;
     }
     interface KubaInput {
+        "componentId": string;
+        "inputType": "text" | "number";
+        "label": string;
     }
 }
 declare global {
@@ -78,8 +82,12 @@ declare namespace LocalJSX {
     interface KubaAddressForm {
     }
     interface KubaButton {
+        "handleSubmit"?: any;
     }
     interface KubaInput {
+        "componentId"?: string;
+        "inputType"?: "text" | "number";
+        "label"?: string;
         "onInputEvent"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {

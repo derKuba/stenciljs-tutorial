@@ -1,18 +1,18 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'kuba-button',
-  styleUrl: 'kuba-button.css',
+  tag: "kuba-button",
+  styleUrl: "kuba-button.css",
   shadow: true,
 })
 export class KubaButton {
+  @Prop() handleSubmit;
 
   render() {
     return (
       <Host>
-        <button> speichern</button>
+        <button onClick={this.handleSubmit}> speichern</button>
       </Host>
     );
   }
-
 }

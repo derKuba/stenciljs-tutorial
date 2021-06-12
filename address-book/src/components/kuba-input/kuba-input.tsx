@@ -1,27 +1,36 @@
-import { Component, Host, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Event, EventEmitter, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'kuba-input',
-  styleUrl: 'kuba-input.css',
+  tag: "kuba-input",
+  styleUrl: "kuba-input.css",
   shadow: true,
 })
 export class KubaInput {
+  @Prop() componentId: string;
+
+  @Prop() label: string;
+
+  @Prop() inputType: "text" | "number" = "text";
 
   @Event({ bubbles: true }) inputEvent: EventEmitter;
 
   private onInput = (event) => {
     this.inputEvent.emit({ value: event.target.value });
-  }
+  };
 
   render() {
     return (
       <Host>
         <div class="kuba-input">
-          <label htmlFor="name">Male</label>
-          <input type="text" name="name" id="name" value="" onInput={this.onInput} />
+          <label htmlFor={this.componentId}>{this.label}</label>
+          <input
+            type={this.componentId}
+            id={this.componentId}
+            value=""
+            onInput={this.onInput}
+          />
         </div>
       </Host>
     );
   }
-
 }

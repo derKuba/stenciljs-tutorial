@@ -22,5 +22,6 @@ module.exports = {
         "prettier",
     ],
     "rules": {
+        "@stencil/required-jsdoc": "off"
     }
 };
