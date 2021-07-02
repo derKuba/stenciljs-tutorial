@@ -24,6 +24,14 @@ export namespace Components {
         "inputType": "text" | "number";
         "label": string;
     }
+    interface KubaTableAttributes {
+        "body": any;
+        "head": any;
+    }
+    interface KubaTableOptions {
+    }
+    interface KubaTableSlot {
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -62,6 +70,24 @@ declare global {
         prototype: HTMLKubaInputElement;
         new (): HTMLKubaInputElement;
     };
+    interface HTMLKubaTableAttributesElement extends Components.KubaTableAttributes, HTMLStencilElement {
+    }
+    var HTMLKubaTableAttributesElement: {
+        prototype: HTMLKubaTableAttributesElement;
+        new (): HTMLKubaTableAttributesElement;
+    };
+    interface HTMLKubaTableOptionsElement extends Components.KubaTableOptions, HTMLStencilElement {
+    }
+    var HTMLKubaTableOptionsElement: {
+        prototype: HTMLKubaTableOptionsElement;
+        new (): HTMLKubaTableOptionsElement;
+    };
+    interface HTMLKubaTableSlotElement extends Components.KubaTableSlot, HTMLStencilElement {
+    }
+    var HTMLKubaTableSlotElement: {
+        prototype: HTMLKubaTableSlotElement;
+        new (): HTMLKubaTableSlotElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
@@ -69,6 +95,9 @@ declare global {
         "kuba-address-form": HTMLKubaAddressFormElement;
         "kuba-button": HTMLKubaButtonElement;
         "kuba-input": HTMLKubaInputElement;
+        "kuba-table-attributes": HTMLKubaTableAttributesElement;
+        "kuba-table-options": HTMLKubaTableOptionsElement;
+        "kuba-table-slot": HTMLKubaTableSlotElement;
     }
 }
 declare namespace LocalJSX {
@@ -90,6 +119,14 @@ declare namespace LocalJSX {
         "label"?: string;
         "onInputEvent"?: (event: CustomEvent<any>) => void;
     }
+    interface KubaTableAttributes {
+        "body"?: any;
+        "head"?: any;
+    }
+    interface KubaTableOptions {
+    }
+    interface KubaTableSlot {
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
@@ -97,6 +134,9 @@ declare namespace LocalJSX {
         "kuba-address-form": KubaAddressForm;
         "kuba-button": KubaButton;
         "kuba-input": KubaInput;
+        "kuba-table-attributes": KubaTableAttributes;
+        "kuba-table-options": KubaTableOptions;
+        "kuba-table-slot": KubaTableSlot;
     }
 }
 export { LocalJSX as JSX };
@@ -109,6 +149,9 @@ declare module "@stencil/core" {
             "kuba-address-form": LocalJSX.KubaAddressForm & JSXBase.HTMLAttributes<HTMLKubaAddressFormElement>;
             "kuba-button": LocalJSX.KubaButton & JSXBase.HTMLAttributes<HTMLKubaButtonElement>;
             "kuba-input": LocalJSX.KubaInput & JSXBase.HTMLAttributes<HTMLKubaInputElement>;
+            "kuba-table-attributes": LocalJSX.KubaTableAttributes & JSXBase.HTMLAttributes<HTMLKubaTableAttributesElement>;
+            "kuba-table-options": LocalJSX.KubaTableOptions & JSXBase.HTMLAttributes<HTMLKubaTableOptionsElement>;
+            "kuba-table-slot": LocalJSX.KubaTableSlot & JSXBase.HTMLAttributes<HTMLKubaTableSlotElement>;
         }
     }
 }
