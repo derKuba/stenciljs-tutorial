@@ -1,4 +1,5 @@
-import { Component, Host, h, State } from "@stencil/core";
+import { Component, Host, h, State, Prop } from "@stencil/core";
+import { MatchResults } from "@stencil/router";
 
 @Component({
   tag: "kuba-address-form",
@@ -7,6 +8,8 @@ import { Component, Host, h, State } from "@stencil/core";
 })
 export class KubaAddressForm {
   @State() innerText: string;
+
+  @Prop() match: MatchResults;
 
   private onChange = ({ detail: { value } }: { detail: { value: string } }) => {
     console.log(value);
@@ -18,9 +21,15 @@ export class KubaAddressForm {
   };
 
   render() {
+
     return (
       <Host>
-        <h2>Adress-Formular</h2>
+        <h1>Kontakt-Form {this.match.params.id}</h1>
+
+        <stencil-route-link url="/" activeClass="link-active">
+          Zurück
+        </stencil-route-link>
+
         <kuba-input
           componentId="name"
           label="Name:"

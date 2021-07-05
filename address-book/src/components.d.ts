@@ -7,22 +7,22 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults } from "@stencil/router";
 export namespace Components {
-    interface AppHome {
-    }
-    interface AppProfile {
-        "match": MatchResults;
-    }
     interface AppRoot {
     }
     interface KubaAddressForm {
+        "match": MatchResults;
     }
     interface KubaButton {
         "handleSubmit": any;
+    }
+    interface KubaHome {
     }
     interface KubaInput {
         "componentId": string;
         "inputType": "text" | "number";
         "label": string;
+    }
+    interface KubaList {
     }
     interface KubaTableAttributes {
         "body": any;
@@ -34,18 +34,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
-    }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
-    };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
-    }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
-    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
@@ -64,11 +52,23 @@ declare global {
         prototype: HTMLKubaButtonElement;
         new (): HTMLKubaButtonElement;
     };
+    interface HTMLKubaHomeElement extends Components.KubaHome, HTMLStencilElement {
+    }
+    var HTMLKubaHomeElement: {
+        prototype: HTMLKubaHomeElement;
+        new (): HTMLKubaHomeElement;
+    };
     interface HTMLKubaInputElement extends Components.KubaInput, HTMLStencilElement {
     }
     var HTMLKubaInputElement: {
         prototype: HTMLKubaInputElement;
         new (): HTMLKubaInputElement;
+    };
+    interface HTMLKubaListElement extends Components.KubaList, HTMLStencilElement {
+    }
+    var HTMLKubaListElement: {
+        prototype: HTMLKubaListElement;
+        new (): HTMLKubaListElement;
     };
     interface HTMLKubaTableAttributesElement extends Components.KubaTableAttributes, HTMLStencilElement {
     }
@@ -89,35 +89,35 @@ declare global {
         new (): HTMLKubaTableSlotElement;
     };
     interface HTMLElementTagNameMap {
-        "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "kuba-address-form": HTMLKubaAddressFormElement;
         "kuba-button": HTMLKubaButtonElement;
+        "kuba-home": HTMLKubaHomeElement;
         "kuba-input": HTMLKubaInputElement;
+        "kuba-list": HTMLKubaListElement;
         "kuba-table-attributes": HTMLKubaTableAttributesElement;
         "kuba-table-options": HTMLKubaTableOptionsElement;
         "kuba-table-slot": HTMLKubaTableSlotElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
-    }
-    interface AppProfile {
-        "match"?: MatchResults;
-    }
     interface AppRoot {
     }
     interface KubaAddressForm {
+        "match"?: MatchResults;
     }
     interface KubaButton {
         "handleSubmit"?: any;
+    }
+    interface KubaHome {
     }
     interface KubaInput {
         "componentId"?: string;
         "inputType"?: "text" | "number";
         "label"?: string;
         "onInputEvent"?: (event: CustomEvent<any>) => void;
+    }
+    interface KubaList {
     }
     interface KubaTableAttributes {
         "body"?: any;
@@ -128,12 +128,12 @@ declare namespace LocalJSX {
     interface KubaTableSlot {
     }
     interface IntrinsicElements {
-        "app-home": AppHome;
-        "app-profile": AppProfile;
         "app-root": AppRoot;
         "kuba-address-form": KubaAddressForm;
         "kuba-button": KubaButton;
+        "kuba-home": KubaHome;
         "kuba-input": KubaInput;
+        "kuba-list": KubaList;
         "kuba-table-attributes": KubaTableAttributes;
         "kuba-table-options": KubaTableOptions;
         "kuba-table-slot": KubaTableSlot;
@@ -143,12 +143,12 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "kuba-address-form": LocalJSX.KubaAddressForm & JSXBase.HTMLAttributes<HTMLKubaAddressFormElement>;
             "kuba-button": LocalJSX.KubaButton & JSXBase.HTMLAttributes<HTMLKubaButtonElement>;
+            "kuba-home": LocalJSX.KubaHome & JSXBase.HTMLAttributes<HTMLKubaHomeElement>;
             "kuba-input": LocalJSX.KubaInput & JSXBase.HTMLAttributes<HTMLKubaInputElement>;
+            "kuba-list": LocalJSX.KubaList & JSXBase.HTMLAttributes<HTMLKubaListElement>;
             "kuba-table-attributes": LocalJSX.KubaTableAttributes & JSXBase.HTMLAttributes<HTMLKubaTableAttributesElement>;
             "kuba-table-options": LocalJSX.KubaTableOptions & JSXBase.HTMLAttributes<HTMLKubaTableOptionsElement>;
             "kuba-table-slot": LocalJSX.KubaTableSlot & JSXBase.HTMLAttributes<HTMLKubaTableSlotElement>;
