@@ -13,7 +13,6 @@ export class KubaTableOptions {
   private bodyItems = [];
 
   connectedCallback() {
-
     const headOptions = Array.from(this.$el.querySelectorAll("kuba-table-options-head option"));
     this.headItems = headOptions.map(item => item.getAttribute("value"));
 
@@ -29,7 +28,6 @@ export class KubaTableOptions {
     while (items.length) {
       chunks.push(items.splice(0, size));
     }
-
     return chunks;
   }
 
@@ -56,5 +54,4 @@ export class KubaTableOptions {
       </Host>
     );
   }
-
 }

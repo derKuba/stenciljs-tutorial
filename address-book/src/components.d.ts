@@ -21,6 +21,7 @@ export namespace Components {
         "componentId": string;
         "inputType": "text" | "number";
         "label": string;
+        "value": string;
     }
     interface KubaList {
     }
@@ -116,6 +117,7 @@ declare namespace LocalJSX {
         "inputType"?: "text" | "number";
         "label"?: string;
         "onInputEvent"?: (event: CustomEvent<any>) => void;
+        "value"?: string;
     }
     interface KubaList {
     }

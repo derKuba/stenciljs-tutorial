@@ -1,23 +1,32 @@
 import { Component, Host, h, State, Prop } from "@stencil/core";
 import { MatchResults } from "@stencil/router";
 
+import addressStore from "../../store/address-store";
+
 @Component({
   tag: "kuba-address-form",
   styleUrl: "kuba-address-form.css",
   shadow: true,
 })
 export class KubaAddressForm {
-  @State() innerText: string;
+  @State() firstNameState: string;
+  @State() lastNameState: string;
 
   @Prop() match: MatchResults;
 
-  private onChange = ({ detail: { value } }: { detail: { value: string } }) => {
-    console.log(value);
-    this.innerText = value;
+  private onChangeFirstName = ({ detail: { value } }: { detail: { value: string } }) => {
+    this.firstNameState = value;
+  };
+
+  private onChangeLastName = ({ detail: { value } }: { detail: { value: string } }) => {
+    this.lastNameState = value;
   };
 
   private onSubmit = () => {
-    alert(this.innerText);
+    console.log(this.firstNameState, this.lastNameState);
+    addressStore.contacts.push({ firstname: this.firstNameState, lastName: this.lastNameState });
+    this.firstNameState = "";
+    this.lastNameState = "";
   };
 
   render() {
@@ -30,15 +39,25 @@ export class KubaAddressForm {
           Zurück
         </stencil-route-link>
 
+        <hr/>
+
         <kuba-input
-          componentId="name"
-          label="Name:"
-          onInputEvent={this.onChange}
+          componentId="first-name"
+          label="FirstName:"
+          onInputEvent={this.onChangeFirstName}
+          value={this.firstNameState}
         ></kuba-input>
+
+        <kuba-input
+          componentId="last-name"
+          label="LastName:"
+          onInputEvent={this.onChangeLastName}
+          value={this.lastNameState}
+        ></kuba-input>
+
         <kuba-button handleSubmit={this.onSubmit}>speichern</kuba-button>
         <hr />
-        <h3>Eingegebene Daten:</h3>
-        Name: {this.innerText}
+      
       </Host>
     );
   }

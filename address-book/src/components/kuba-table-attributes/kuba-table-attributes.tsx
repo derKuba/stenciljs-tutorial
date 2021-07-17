@@ -11,7 +11,6 @@ export class KubaTableAttributes {
   @Prop() body;
 
   render() {
-
     return (
       <Host>
         <table>
@@ -33,5 +32,4 @@ export class KubaTableAttributes {
       </Host>
     );
   }
-
 }

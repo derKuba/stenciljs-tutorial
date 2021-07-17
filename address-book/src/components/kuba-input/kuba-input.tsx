@@ -12,6 +12,8 @@ export class KubaInput {
 
   @Prop() inputType: "text" | "number" = "text";
 
+  @Prop() value: string;
+
   @Event() inputEvent: EventEmitter;
 
   private onInput = (event) => {
@@ -26,7 +28,7 @@ export class KubaInput {
           <input
             type={this.componentId}
             id={this.componentId}
-            value=""
+            value={this.value}
             onInput={this.onInput}
           />
         </div>

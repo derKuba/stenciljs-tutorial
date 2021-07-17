@@ -16,6 +16,7 @@
     "@stencil/core": "^2.6.0",
     "@stencil/eslint-plugin": "^0.3.1",
     "@stencil/router": "^1.0.1",
+    "@stencil/store": "^1.4.1",
     "@types/jest": "^26.0.23",
     "@types/puppeteer": "^5.4.3",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
