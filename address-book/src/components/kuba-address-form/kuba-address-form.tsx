@@ -11,6 +11,7 @@ import addressStore from "../../store/address-store";
 export class KubaAddressForm {
   @State() firstNameState: string;
   @State() lastNameState: string;
+  @State() idState: string;
 
   @Prop() match: MatchResults;
 
@@ -22,11 +23,41 @@ export class KubaAddressForm {
     this.lastNameState = value;
   };
 
+  connectedCallback() {
+  
+    addressStore.contacts.forEach(item => {
+    
+      if (item.id === this.match.params.id) {
+           this.firstNameState = item.firstname;
+           this.lastNameState = item.lastName;
+            this.idState = item.id;
+      };
+    })
+
+  }
+
+  // https://www.w3resource.com/javascript-exercises/javascript-math-exercise-23.php
+  create_UUID = ()=>{
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+  }
+
   private onSubmit = () => {
-    console.log(this.firstNameState, this.lastNameState);
-    addressStore.contacts.push({ firstname: this.firstNameState, lastName: this.lastNameState });
+    const uuid = this.create_UUID();
+    console.log("uuid",uuid)
+    addressStore.contacts.push({ firstname: this.firstNameState, lastName: this.lastNameState, id: uuid });
+    addressStore.contacts = [
+      ...addressStore.contacts
+    ];
+  
     this.firstNameState = "";
     this.lastNameState = "";
+    this.idState = "";
   };
 
   render() {
@@ -39,7 +70,9 @@ export class KubaAddressForm {
           Zurück
         </stencil-route-link>
 
-        <hr/>
+        <hr />
+        
+        <button onClick={()=>console.log(addressStore.contacts)}>test</button>
 
         <kuba-input
           componentId="first-name"

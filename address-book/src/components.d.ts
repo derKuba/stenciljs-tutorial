@@ -30,6 +30,7 @@ export namespace Components {
         "head": any;
     }
     interface KubaTableOptions {
+        "delete": any;
     }
     interface KubaTableSlot {
     }
@@ -126,6 +127,7 @@ declare namespace LocalJSX {
         "head"?: any;
     }
     interface KubaTableOptions {
+        "delete"?: any;
     }
     interface KubaTableSlot {
     }
