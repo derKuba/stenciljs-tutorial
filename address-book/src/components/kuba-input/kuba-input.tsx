@@ -26,7 +26,7 @@ export class KubaInput {
         <div class="kuba-input">
           <label htmlFor={this.componentId}>{this.label}</label>
           <input
-            type={this.componentId}
+            type={this.inputType}
             id={this.componentId}
             value={this.value}
             onInput={this.onInput}
