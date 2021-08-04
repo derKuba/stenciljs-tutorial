@@ -1,8 +1,8 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { KubaTableAttributes } from '../kuba-table-attributes';
+import { newSpecPage } from "@stencil/core/testing";
+import { KubaTableAttributes } from "../kuba-table-attributes";
 
-describe('kuba-table-attributes', () => {
-  it('renders', async () => {
+describe("kuba-table-attributes", () => {
+  it("renders", async () => {
     const page = await newSpecPage({
       components: [KubaTableAttributes],
       html: `<kuba-table-attributes></kuba-table-attributes>`,

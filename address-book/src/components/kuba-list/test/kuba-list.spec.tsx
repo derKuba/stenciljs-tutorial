@@ -1,8 +1,8 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { KubaList } from '../kuba-list';
+import { newSpecPage } from "@stencil/core/testing";
+import { KubaList } from "../kuba-list";
 
-describe('kuba-list', () => {
-  it('renders', async () => {
+describe("kuba-list", () => {
+  it("renders", async () => {
     const page = await newSpecPage({
       components: [KubaList],
       html: `<kuba-list></kuba-list>`,

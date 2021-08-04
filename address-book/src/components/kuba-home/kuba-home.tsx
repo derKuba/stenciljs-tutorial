@@ -1,12 +1,11 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h } from "@stencil/core";
 
 @Component({
-  tag: 'kuba-home',
-  styleUrl: 'kuba-home.css',
+  tag: "kuba-home",
+  styleUrl: "kuba-home.css",
   shadow: true,
 })
 export class KubaHome {
-
   render() {
     return (
       <Host>
@@ -16,5 +15,4 @@ export class KubaHome {
       </Host>
     );
   }
-
 }

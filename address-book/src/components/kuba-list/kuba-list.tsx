@@ -1,31 +1,32 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h } from "@stencil/core";
 
 import addressStore from "../../store/address-store";
 
 @Component({
-  tag: 'kuba-list',
-  styleUrl: 'kuba-list.css',
+  tag: "kuba-list",
+  styleUrl: "kuba-list.css",
   shadow: true,
 })
 export class KubaList {
-
-
   deleteContact = (id: string) => {
-    const filteredArray = addressStore.contacts.filter(item => item.id !== id);
+    const filteredArray = addressStore.contacts.filter(
+      (item) => item.id !== id,
+    );
     addressStore.contacts = filteredArray;
-  }
+  };
 
   render() {
-  console.log("rednder", addressStore.contacts)
     return (
       <Host>
-      
         <stencil-route-link url="/contact" activeClass="link-active">
-          Neu
+          Neuer Kontakt
         </stencil-route-link>
-        <hr/>
-    
-        <kuba-table-options delete={this.deleteContact} key={addressStore.contacts.length}>
+        <hr />
+
+        <kuba-table-options
+          delete={this.deleteContact}
+          key={addressStore.contacts.length}
+        >
           <kuba-table-options-head>
             <option value="id" />
             <option value="name" />
@@ -33,12 +34,16 @@ export class KubaList {
             <option value="aktion" />
           </kuba-table-options-head>
           <kuba-table-options-body>
-            {addressStore.contacts.map( (row, index)=> [<option value={row.id} />,<option value={row.firstname} />,<option value={row.lastName} />,<option value={row.id} />] )}
+            {addressStore.contacts.map((row) => [
+              <option value={row.id} />,
+              <option value={row.firstname} />,
+              <option value={row.lastName} />,
+              <option value={row.id} />,
+            ])}
           </kuba-table-options-body>
         </kuba-table-options>
         <hr />
       </Host>
     );
   }
-
 }

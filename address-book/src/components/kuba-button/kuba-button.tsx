@@ -12,7 +12,7 @@ export class KubaButton {
     return (
       <Host>
         <button onClick={this.handleSubmit}>
-          <slot/>
+          <slot />
         </button>
       </Host>
     );

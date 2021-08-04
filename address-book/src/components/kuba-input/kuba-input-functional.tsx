@@ -5,16 +5,17 @@ export const KubaInputFunctional = ({
   label,
   type = "text",
   value,
+  setter,
 }: {
   componentId: string;
   label: string;
   type: "text" | "number";
   value: string;
+  setter: Function;
 }) => {
+
   const onInput = (event) => {
-    event.document.target.dispatchEvent(
-      new CustomEvent("inputEvent", { detail: { value: event.target.value } }),
-    );
+    setter({ value: event.target.value });
   };
   return (
     <div class="kuba-input">

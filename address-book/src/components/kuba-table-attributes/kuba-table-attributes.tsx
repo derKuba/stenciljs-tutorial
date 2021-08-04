@@ -1,12 +1,11 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'kuba-table-attributes',
-  styleUrl: 'kuba-table-attributes.css',
+  tag: "kuba-table-attributes",
+  styleUrl: "kuba-table-attributes.css",
   shadow: true,
 })
 export class KubaTableAttributes {
-
   @Prop() head;
   @Prop() body;
 
@@ -16,17 +15,18 @@ export class KubaTableAttributes {
         <table>
           <thead>
             <tr>
-              {
-                this.head.length > 0 && this.head.map(row => <th>{row}</th>)
-              }
+              {this.head.length > 0 && this.head.map((row) => <th>{row}</th>)}
             </tr>
           </thead>
           <tbody>
-            {
-              this.body.length > 0 && this.body.map(row => <tr>
-                {row.map(cell => <td>{cell}</td>)}
-              </tr>)
-            }
+            {this.body.length > 0 &&
+              this.body.map((row) => (
+                <tr>
+                  {row.map((cell) => (
+                    <td>{cell}</td>
+                  ))}
+                </tr>
+              ))}
           </tbody>
         </table>
       </Host>
