@@ -34,11 +34,7 @@ export class KubaAddressForm {
     this.lastNameState = value;
   };
 
-  private onChangeAddress = ({
-    value,
-  }: {
-    value: string;
-  }) => {
+  private onChangeAddress = ({ value }: { value: string }) => {
     this.addressState = value;
   };
 
@@ -68,7 +64,6 @@ export class KubaAddressForm {
   };
 
   private onSubmit = () => {
-    console.log(this.match.params.id)
     if (this.match.params.id === undefined) {
       const uuid = this.create_UUID();
 
@@ -79,6 +74,11 @@ export class KubaAddressForm {
         address: this.addressState,
       });
       addressStore.contacts = [...addressStore.contacts];
+
+      this.firstNameState = "";
+      this.lastNameState = "";
+      this.idState = "";
+      this.addressState = "";
     } else {
       addressStore.contacts.forEach((contact, index) => {
         if (contact.id === this.match.params.id) {
@@ -87,16 +87,10 @@ export class KubaAddressForm {
             firstname: this.firstNameState,
             lastName: this.lastNameState,
             address: this.addressState,
-          }
+          };
         }
-      })
+      });
     }
-
-
-    this.firstNameState = "";
-    this.lastNameState = "";
-    this.idState = "";
-    this.addressState = "";
   };
 
   render() {

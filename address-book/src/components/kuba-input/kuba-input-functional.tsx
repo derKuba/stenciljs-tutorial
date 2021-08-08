@@ -13,7 +13,6 @@ export const KubaInputFunctional = ({
   value: string;
   setter: Function;
 }) => {
-
   const onInput = (event) => {
     setter({ value: event.target.value });
   };
