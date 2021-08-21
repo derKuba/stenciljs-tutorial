@@ -7,10 +7,12 @@ describe("kuba-button", () => {
       components: [KubaButton],
       html: `<kuba-button></kuba-button>`,
     });
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toMatchInlineSnapshot(`
       <kuba-button>
         <mock:shadow-root>
-          <slot></slot>
+          <button>
+            <slot></slot>
+          </button>
         </mock:shadow-root>
       </kuba-button>
     `);
