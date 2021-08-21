@@ -4,6 +4,7 @@ import { MatchResults } from "@stencil/router";
 import addressStore from "../../store/address-store";
 
 import { KubaInputFunctional } from "../kuba-input/kuba-input-functional";
+import { create_UUID } from "./utils/create-uuid";
 
 @Component({
   tag: "kuba-address-form",
@@ -49,23 +50,10 @@ export class KubaAddressForm {
     });
   }
 
-  // https://www.w3resource.com/javascript-exercises/javascript-math-exercise-23.php
-  create_UUID = () => {
-    var dt = new Date().getTime();
-    var uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-      /[xy]/g,
-      function (c) {
-        var r = (dt + Math.random() * 16) % 16 | 0;
-        dt = Math.floor(dt / 16);
-        return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
-      },
-    );
-    return uuid;
-  };
 
   private onSubmit = () => {
     if (this.match.params.id === undefined) {
-      const uuid = this.create_UUID();
+      const uuid = create_UUID();
 
       addressStore.contacts.push({
         firstname: this.firstNameState,
