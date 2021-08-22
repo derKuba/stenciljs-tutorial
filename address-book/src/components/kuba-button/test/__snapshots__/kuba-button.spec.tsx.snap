@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-button renders 2`] = `
+<kuba-button>
+  <mock:shadow-root>
+    <button>
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+</kuba-button>
+`;
+
+exports[`kuba-button should render the button 1`] = `
+<kuba-button>
+  <mock:shadow-root>
+    <button>
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+</kuba-button>
+`;

@@ -8,10 +8,14 @@ import { Component, Host, h, Prop } from "@stencil/core";
 export class KubaButton {
   @Prop() handleSubmit;
 
+  private handleClickEvent = () => {
+    this.handleSubmit();
+  };
+
   render() {
     return (
       <Host>
-        <button onClick={this.handleSubmit}>
+        <button onClick={this.handleClickEvent}>
           <slot />
         </button>
       </Host>
