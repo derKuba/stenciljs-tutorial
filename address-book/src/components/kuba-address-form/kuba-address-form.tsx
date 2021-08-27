@@ -40,6 +40,7 @@ export class KubaAddressForm {
   };
 
   connectedCallback() {
+
     addressStore.contacts.forEach((item) => {
       if (item.id === this.match.params.id) {
         this.addressState = item.address;
@@ -52,7 +53,13 @@ export class KubaAddressForm {
 
 
   private onSubmit = () => {
-    if (this.match.params.id === undefined) {
+
+    if (this.match?.params.id === undefined) {
+
+      // einfach nur für den spy test
+      const spyExample = global.document.getElementById("test");
+
+      console.log("ioasjdioasjdioasjdi", create_UUID)
       const uuid = create_UUID();
 
       addressStore.contacts.push({
@@ -84,7 +91,7 @@ export class KubaAddressForm {
   render() {
     return (
       <Host>
-        <h1>Kontakt-Form {this.match.params.id}</h1>
+        <h1>Kontakt-Form {this.match?.params.id}</h1>
 
         <stencil-route-link url="/" activeClass="link-active">
           Zurück

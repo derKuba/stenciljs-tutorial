@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-address-form renders 1`] = `
+<kuba-address-form>
+  <mock:shadow-root>
+    <h1>
+      Kontakt-Form
+    </h1>
+    <stencil-route-link activeclass="link-active" url="/">
+      Zurück
+    </stencil-route-link>
+    <hr>
+    <kuba-input componentid="first-name" label="Vorname:"></kuba-input>
+    <kuba-input componentid="last-name" label="Nachname:"></kuba-input>
+    <div class="kuba-input">
+      <label htmlfor="street">
+        Adresse:
+      </label>
+      <input id="street" type="text">
+    </div>
+    <br>
+    <kuba-button>
+      speichern
+    </kuba-button>
+    <hr>
+  </mock:shadow-root>
+</kuba-address-form>
+`;
