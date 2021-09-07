@@ -3,7 +3,7 @@ import { createStore } from "@stencil/store";
 type Contact = {
   id: string;
   lastName: string;
-  firstname: string;
+  firstName: string;
   address: string;
 };
 

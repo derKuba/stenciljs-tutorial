@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-list renders 1`] = `
+<kuba-list>
+  <mock:shadow-root>
+    <stencil-route-link activeclass="link-active" url="/contact">
+      Neuer Kontakt
+    </stencil-route-link>
+    <hr>
+    <kuba-table-options>
+      <kuba-table-options-head>
+        <option value="id"></option>
+        <option value="name"></option>
+        <option value="vorname"></option>
+        <option value="aktion"></option>
+      </kuba-table-options-head>
+      <kuba-table-options-body></kuba-table-options-body>
+    </kuba-table-options>
+    <hr>
+  </mock:shadow-root>
+</kuba-list>
+`;

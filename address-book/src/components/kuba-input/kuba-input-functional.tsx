@@ -3,7 +3,7 @@ import { h } from "@stencil/core";
 export const KubaInputFunctional = ({
   componentId,
   label,
-  type = "text",
+  type,
   value,
   setter,
 }: {

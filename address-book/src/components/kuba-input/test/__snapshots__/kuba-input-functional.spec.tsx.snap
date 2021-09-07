@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-input-functional renders 1`] = `
+<div class="kuba-input">
+  <label htmlfor="street">
+    Adresse:
+  </label>
+  <input id="street" type="text" value="">
+</div>
+`;

@@ -7,12 +7,6 @@ describe("kuba-list", () => {
       components: [KubaList],
       html: `<kuba-list></kuba-list>`,
     });
-    expect(page.root).toEqualHtml(`
-      <kuba-list>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </kuba-list>
-    `);
+    expect(page.root).toMatchSnapshot();
   });
 });

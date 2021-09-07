@@ -24,7 +24,9 @@ export class KubaAddressForm {
   }: {
     detail: { value: string };
   }) => {
+
     this.firstNameState = value;
+    this.logger("firstName was filled");
   };
 
   private onChangeLastName = ({
@@ -33,22 +35,29 @@ export class KubaAddressForm {
     detail: { value: string };
   }) => {
     this.lastNameState = value;
+    this.logger("lastName was filled");
   };
 
   private onChangeAddress = ({ value }: { value: string }) => {
     this.addressState = value;
   };
 
+
+  private logger = (content: string) => {
+    console.log(`logger: ${content}`);
+  }
+
   connectedCallback() {
 
     addressStore.contacts.forEach((item) => {
       if (item.id === this.match.params.id) {
         this.addressState = item.address;
-        this.firstNameState = item.firstname;
+        this.firstNameState = item.firstName;
         this.lastNameState = item.lastName;
         this.idState = item.id;
       }
     });
+    this.logger("connectedCallback");
   }
 
 
@@ -58,12 +67,10 @@ export class KubaAddressForm {
 
       // einfach nur für den spy test
       const spyExample = global.document.getElementById("test");
-
-      console.log("ioasjdioasjdioasjdi", create_UUID)
       const uuid = create_UUID();
 
       addressStore.contacts.push({
-        firstname: this.firstNameState,
+        firstName: this.firstNameState,
         lastName: this.lastNameState,
         id: uuid,
         address: this.addressState,
@@ -79,7 +86,7 @@ export class KubaAddressForm {
         if (contact.id === this.match.params.id) {
           addressStore.contacts[index] = {
             ...addressStore.contacts[index],
-            firstname: this.firstNameState,
+            firstName: this.firstNameState,
             lastName: this.lastNameState,
             address: this.addressState,
           };

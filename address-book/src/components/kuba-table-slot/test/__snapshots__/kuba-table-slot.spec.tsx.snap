@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-table-slot renders 1`] = `
+<kuba-table-slot>
+  <mock:shadow-root>
+    <table>
+      <thead>
+        <slot name="table-head"></slot>
+      </thead>
+      <tbody>
+        <slot></slot>
+      </tbody>
+    </table>
+  </mock:shadow-root>
+  id Name Vorname 1 Max Muster 2 Maxine Muster 3 Momo Muster
+</kuba-table-slot>
+`;

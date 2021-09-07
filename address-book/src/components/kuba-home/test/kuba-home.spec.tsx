@@ -7,12 +7,6 @@ describe("kuba-home", () => {
       components: [KubaHome],
       html: `<kuba-home></kuba-home>`,
     });
-    expect(page.root).toEqualHtml(`
-      <kuba-home>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </kuba-home>
-    `);
+    expect(page.root).toMatchSnapshot();
   });
 });

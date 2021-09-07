@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-home renders 1`] = `
+<kuba-home>
+  <mock:shadow-root>
+    <h1>
+      Kuba-Home
+    </h1>
+    <kuba-list></kuba-list>
+  </mock:shadow-root>
+</kuba-home>
+`;

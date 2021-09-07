@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-table-attributes renders 1`] = `
+<kuba-table-attributes>
+  <mock:shadow-root>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            id
+          </th>
+          <th>
+            Name
+          </th>
+          <th>
+            Vorname
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1
+          </td>
+          <td>
+            Max
+          </td>
+          <td>
+            Muster
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2
+          </td>
+          <td>
+            Maxine
+          </td>
+          <td>
+            Muster
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3
+          </td>
+          <td>
+            Momo
+          </td>
+          <td>
+            Muster
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mock:shadow-root>
+</kuba-table-attributes>
+`;
