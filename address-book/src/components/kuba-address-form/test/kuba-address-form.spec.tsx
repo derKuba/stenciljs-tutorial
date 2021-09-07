@@ -88,11 +88,12 @@ describe("kuba-address-form", () => {
   });
 
   it("should use a spy", async () => {
-    const windowSpy = jest.spyOn(global.document, "getElementById");
+    const documentSpy = jest.spyOn(global.document, "getElementById");
     const addressForm = new KubaAddressForm();
     addressForm.onSubmit();
 
-    expect(windowSpy).toBeCalled()
+    expect(documentSpy).toBeCalled();
+    expect(documentSpy).toBeCalledWith("test");
   });
 
 

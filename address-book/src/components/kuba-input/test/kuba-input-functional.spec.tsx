@@ -33,7 +33,11 @@ describe("kuba-input-functional", () => {
 
     const event = new Event("input");
 
-    page.root.querySelector("input").dispatchEvent(event);
+    page.root
+      .querySelector("input")
+      .dispatchEvent(event);
+
+    console.log(setterMock.mock.calls)
 
     expect(setterMock).toHaveBeenCalled();
   });
