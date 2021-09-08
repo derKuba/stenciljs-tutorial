@@ -36,7 +36,7 @@ export class KubaList {
           <kuba-table-options-body>
             {addressStore.contacts.map((row) => [
               <option value={row.id} />,
-              <option value={row.firstname} />,
+              <option value={row.firstName} />,
               <option value={row.lastName} />,
               <option value={row.id} />,
             ])}

@@ -3,8 +3,6 @@ import { newSpecPage } from "@stencil/core/testing";
 
 jest.mock('../utils/create-uuid', () => {
   const originalModule = jest.requireActual('../utils/create-uuid');
-
-  //Mock the default export and named export 'foo'
   return {
     __esModule: true,
     ...originalModule,

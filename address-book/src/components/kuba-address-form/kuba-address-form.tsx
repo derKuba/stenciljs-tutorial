@@ -66,7 +66,7 @@ export class KubaAddressForm {
     if (this.match?.params.id === undefined) {
 
       // einfach nur für den spy test
-      const spyExample = global.document.getElementById("test");
+      const spyExample = document.getElementById("test");
       const uuid = create_UUID();
 
       addressStore.contacts.push({
