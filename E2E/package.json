@@ -1,0 +1,19 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:local": "PWDEBUG=console playwright test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.14.1",
+    "expect-playwright": "^0.8.0",
+    "playwright": "^1.14.1"
+  },
+  "dependencies": {
+    "@tsconfig/node14": "^1.0.1"
+  }
+}

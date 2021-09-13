@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
+jest.useFakeTimers();
 
 jest.mock('../utils/create-uuid', () => {
   const originalModule = jest.requireActual('../utils/create-uuid');
@@ -26,6 +27,7 @@ describe("kuba-address-form", () => {
 
   beforeEach(() => {
     addressStoreMock.contacts = [];
+
   })
 
   it("renders", async () => {
@@ -148,6 +150,8 @@ describe("kuba-address-form", () => {
     expect(addressForm.firstNameState = "Max");
     expect(addressForm.lastNameState = "Muster");
     expect(addressForm.idState = "23");
+
+    jest.runAllTimers();
 
     expect(loggerMock).toBeCalledWith("connectedCallback");
   });

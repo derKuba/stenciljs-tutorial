@@ -18,7 +18,7 @@ export class KubaList {
   render() {
     return (
       <Host>
-        <stencil-route-link url="/contact" activeClass="link-active">
+        <stencil-route-link id="addressbook_new_contact" url="/contact" activeClass="link-active">
           Neuer Kontakt
         </stencil-route-link>
         <hr />

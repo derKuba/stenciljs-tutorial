@@ -57,7 +57,8 @@ export class KubaAddressForm {
         this.idState = item.id;
       }
     });
-    this.logger("connectedCallback");
+
+    setTimeout(() => this.logger("connectedCallback"), 3000);
   }
 
 
