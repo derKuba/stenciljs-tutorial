@@ -6,7 +6,7 @@ import { matchers } from "expect-playwright";
 expect.extend(matchers);
 
 const config: PlaywrightTestConfig = {
-  forbidOnly: true,
+  // forbidOnly: true,
   //   retries: 3,
   reporter: "line",
 
