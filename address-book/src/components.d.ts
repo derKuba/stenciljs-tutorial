@@ -13,6 +13,7 @@ export namespace Components {
         "match": MatchResults;
     }
     interface KubaButton {
+        "componentId": string;
         "handleSubmit": any;
     }
     interface KubaHome {
@@ -109,6 +110,7 @@ declare namespace LocalJSX {
         "match"?: MatchResults;
     }
     interface KubaButton {
+        "componentId"?: string;
         "handleSubmit"?: any;
     }
     interface KubaHome {

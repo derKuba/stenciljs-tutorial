@@ -101,7 +101,7 @@ export class KubaAddressForm {
       <Host>
         <h1>Kontakt-Form {this.match?.params.id}</h1>
 
-        <stencil-route-link url="/" activeClass="link-active">
+        <stencil-route-link url="/" activeClass="link-active" id="backLink">
           Zurück
         </stencil-route-link>
 
@@ -131,7 +131,7 @@ export class KubaAddressForm {
 
         <br />
 
-        <kuba-button handleSubmit={this.onSubmit}>speichern</kuba-button>
+        <kuba-button component-id="saveContactButton" handleSubmit={this.onSubmit}>speichern</kuba-button>
         <hr />
       </Host>
     );

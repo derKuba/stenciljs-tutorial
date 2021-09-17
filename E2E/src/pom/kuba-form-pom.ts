@@ -20,7 +20,7 @@ class KubaFormPom {
   }
 
   async clickSaveButton() {
-    await this.page.click(this.saveButtonSelector);
+    await this.page.click(this.saveButtonSelector, { timeout: 3000 });
   }
 
   async fillFirstNameInput(value) {

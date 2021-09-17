@@ -19,7 +19,7 @@ class KubaHomePom {
   }
 
   async deleteContact() {
-    await this.page.click(`${this.tableSelector} a`);
+    await this.page.click(`${this.tableSelector} button`);
   }
 
   async getTableLocator() {
