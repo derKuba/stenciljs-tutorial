@@ -23,7 +23,7 @@ describe("kuba-button", () => {
   it("should render the button", async () => {
     const page = await newSpecPage({
       components: [KubaButton],
-      template: () => <kuba-button handleSubmit={() => { }}></kuba-button>,
+      template: () => <kuba-button handleSubmit={() => {}}></kuba-button>,
     });
     expect(page.root).toMatchSnapshot();
   });

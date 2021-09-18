@@ -25,9 +25,5 @@ class KubaHomePom {
   async getTableLocator() {
     return await this.page.locator(this.tableSelector);
   }
-
-  async getContactByRow(rowNumber) {
-    const row = await this.page.locator(this.tableSelector)[rowNumber];
-  }
 }
 export default KubaHomePom;

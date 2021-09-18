@@ -59,7 +59,7 @@ test.describe("Lucky Path Test", () => {
   test("should delete contact", async ({ page }) => {
     await addNewContact(kubaHomePom, kubaFormPom);
 
-    await kubaHomePom.editContact();
+    await kubaHomePom.deleteContact();
 
     const tableLocator = await kubaHomePom.getTableLocator();
     await expect(tableLocator).toHaveCount(0);
