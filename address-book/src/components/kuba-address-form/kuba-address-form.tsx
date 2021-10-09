@@ -1,7 +1,8 @@
-import { Component, Host, h, State, Prop } from "@stencil/core";
+import { Component, Host, h, State, Prop, Element } from "@stencil/core";
 import { MatchResults } from "@stencil/router";
 
 import addressStore from "../../store/address-store";
+import { validate } from "../../validation";
 
 import { KubaInputFunctional } from "../kuba-input/kuba-input-functional";
 import { create_UUID } from "./utils/create-uuid";
@@ -16,14 +17,20 @@ export class KubaAddressForm {
   @State() firstNameState: string;
   @State() lastNameState: string;
   @State() idState: string;
+  @State() ageState: number;
 
   @Prop() match: MatchResults;
+
+  @Element() element: HTMLFormElement;
+
 
   private onChangeFirstName = ({
     detail: { value },
   }: {
     detail: { value: string };
   }) => {
+
+    validate(value);
 
     this.firstNameState = value;
     this.logger("firstName was filled");
@@ -41,6 +48,18 @@ export class KubaAddressForm {
   private onChangeAddress = ({ value }: { value: string }) => {
     this.addressState = value;
   };
+
+  private onChangeAge = ({
+    detail: { value },
+  }: {
+    detail: { value: string };
+  }) => {
+
+    validate(value);
+
+    this.ageState = Number(value);
+  };
+
 
 
   private logger = (content: string) => {
@@ -97,42 +116,56 @@ export class KubaAddressForm {
   };
 
   render() {
+    console.log("form validity", (this.element.shadowRoot.querySelector("#form") as any)?.reportValidity())
     return (
       <Host>
-        <h1>Kontakt-Form {this.match?.params.id}</h1>
+        <form id="form">
+          <h1>Kontakt-Form {this.match?.params.id}</h1>
 
-        <stencil-route-link url="/" activeClass="link-active" id="backLink">
-          Zurück
-        </stencil-route-link>
+          <stencil-route-link url="/" activeClass="link-active" id="backLink">
+            Zurück
+          </stencil-route-link>
 
-        <hr />
+          <hr />
 
-        <kuba-input
-          componentId="first-name"
-          label="Vorname:"
-          onInputEvent={this.onChangeFirstName}
-          value={this.firstNameState}
-        ></kuba-input>
+          <kuba-input
+            componentId="first-name"
+            label="Vorname:"
+            onInputEvent={this.onChangeFirstName}
+            value={this.firstNameState}
+            required="true"
+            pattern="[a-zA-Z]+"
+          >sdasd</kuba-input>
 
-        <kuba-input
-          componentId="last-name"
-          label="Nachname:"
-          onInputEvent={this.onChangeLastName}
-          value={this.lastNameState}
-        ></kuba-input>
+          <kuba-input
+            componentId="last-name"
+            label="Nachname:"
+            onInputEvent={this.onChangeLastName}
+            value={this.lastNameState}
+            required="true"
+          ></kuba-input>
 
-        <KubaInputFunctional
-          componentId="street"
-          label="Adresse:"
-          value={this.addressState}
-          type={"text"}
-          setter={this.onChangeAddress}
-        ></KubaInputFunctional>
+          <kuba-input
+            componentId="age"
+            label="Alter:"
+            onInputEvent={this.onChangeAge}
+            value={`${this.ageState || ""}`}
+            required="true"
+          ></kuba-input>
 
-        <br />
+          <KubaInputFunctional
+            componentId="street"
+            label="Adresse:"
+            value={this.addressState}
+            type={"text"}
+            setter={this.onChangeAddress}
+          ></KubaInputFunctional>
 
-        <kuba-button component-id="saveContactButton" handleSubmit={this.onSubmit}>speichern</kuba-button>
-        <hr />
+          <br />
+
+          <kuba-button component-id="saveContactButton" handleSubmit={this.onSubmit}>speichern</kuba-button>
+          <hr />
+        </form>
       </Host>
     );
   }

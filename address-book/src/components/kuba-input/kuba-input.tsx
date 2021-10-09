@@ -3,7 +3,7 @@ import { Component, Host, h, Event, EventEmitter, Prop } from "@stencil/core";
 @Component({
   tag: "kuba-input",
   styleUrl: "kuba-input.css",
-  shadow: true,
+  shadow: false,
 })
 export class KubaInput {
   @Prop() componentId: string;
@@ -16,11 +16,32 @@ export class KubaInput {
 
   @Event() inputEvent: EventEmitter;
 
+  @Prop() required;
+
+  @Prop() min;
+
+  @Prop() max;
+
+  @Prop() maxlength;
+
+  @Prop() pattern;
+
   private onInput = (event) => {
+    console.log(event.target.validity)
+
     this.inputEvent.emit({ value: event.target.value });
   };
 
   render() {
+
+    const attributes = {
+      required: this.required,
+      min: this.min,
+      max: this.max,
+      maxlength: this.maxlength,
+      pattern: this.pattern,
+    }
+
     return (
       <Host>
         <div class="kuba-input">
@@ -30,8 +51,10 @@ export class KubaInput {
             id={this.componentId}
             value={this.value}
             onInput={this.onInput}
+            {...attributes}
           />
         </div>
+        <slot />
       </Host>
     );
   }
