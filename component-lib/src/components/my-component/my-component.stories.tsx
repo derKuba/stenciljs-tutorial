@@ -1,6 +1,7 @@
 export default {
     title: "Content/My-Component",
     parameters: {
+
     },
     argTypes: {
         first: {
