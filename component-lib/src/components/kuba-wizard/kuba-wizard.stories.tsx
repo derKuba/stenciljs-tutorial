@@ -1,32 +1,25 @@
 export default {
-  title: "Content/Wizard",
+  title: "Content/Wizards",
   parameters: {
-    customEventPanel: {
-      data: [
-        {
+    customEventPanel: [
+      {
 
-          eventName: "wizard:next",
-          eventData: {
-            opt: 23
-          }
+        eventName: "wizard:next",
+        eventData: {
+          opt: 23
         },
-        {
+        selector: "mein.selektor"
+      },
+      {
 
-          eventName: "wizard:previous",
-          eventData: {
-            bla: 23
-          }
-        },
-        {
+        eventName: "wizard:previous",
+        eventData: {
+          bla: 23
+        }
+      },
 
-          eventName: "wizard:abort",
-        },
-        {
+    ],
 
-          eventName: "chapterChangeEvent",
-        },
-      ],
-    },
   },
   argTypes: {
 
