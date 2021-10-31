@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+button {
+  background-color: lightgreen; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

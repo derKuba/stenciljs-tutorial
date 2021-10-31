@@ -6,6 +6,21 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface KubaButton {
+        "componentId": string;
+        "handleSubmit": any;
+    }
+    interface KubaInput {
+        "componentId": string;
+        "inputType": "text" | "number";
+        "label": string;
+        "max": any;
+        "maxlength": any;
+        "min": any;
+        "pattern": any;
+        "required": any;
+        "value": string;
+    }
     interface KubaWizard {
     }
     interface MyComponent {
@@ -24,6 +39,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLKubaButtonElement extends Components.KubaButton, HTMLStencilElement {
+    }
+    var HTMLKubaButtonElement: {
+        prototype: HTMLKubaButtonElement;
+        new (): HTMLKubaButtonElement;
+    };
+    interface HTMLKubaInputElement extends Components.KubaInput, HTMLStencilElement {
+    }
+    var HTMLKubaInputElement: {
+        prototype: HTMLKubaInputElement;
+        new (): HTMLKubaInputElement;
+    };
     interface HTMLKubaWizardElement extends Components.KubaWizard, HTMLStencilElement {
     }
     var HTMLKubaWizardElement: {
@@ -37,11 +64,29 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "kuba-button": HTMLKubaButtonElement;
+        "kuba-input": HTMLKubaInputElement;
         "kuba-wizard": HTMLKubaWizardElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface KubaButton {
+        "componentId"?: string;
+        "handleSubmit"?: any;
+    }
+    interface KubaInput {
+        "componentId"?: string;
+        "inputType"?: "text" | "number";
+        "label"?: string;
+        "max"?: any;
+        "maxlength"?: any;
+        "min"?: any;
+        "onInputEvent"?: (event: CustomEvent<any>) => void;
+        "pattern"?: any;
+        "required"?: any;
+        "value"?: string;
+    }
     interface KubaWizard {
     }
     interface MyComponent {
@@ -59,6 +104,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "kuba-button": KubaButton;
+        "kuba-input": KubaInput;
         "kuba-wizard": KubaWizard;
         "my-component": MyComponent;
     }
@@ -67,6 +114,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "kuba-button": LocalJSX.KubaButton & JSXBase.HTMLAttributes<HTMLKubaButtonElement>;
+            "kuba-input": LocalJSX.KubaInput & JSXBase.HTMLAttributes<HTMLKubaInputElement>;
             "kuba-wizard": LocalJSX.KubaWizard & JSXBase.HTMLAttributes<HTMLKubaWizardElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }

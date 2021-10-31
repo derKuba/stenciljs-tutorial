@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kuba-input renders 1`] = `
+<kuba-input componentid="last-name" label="Nachname:" oninputevent="{()=">
+  <mock:shadow-root>
+    <div class="kuba-input">
+      <label>
+        Nachname:
+      </label>
+      <input type="text">
+    </div>
+  </mock:shadow-root>
+  {}} value={""} &gt;
+</kuba-input>
+`;

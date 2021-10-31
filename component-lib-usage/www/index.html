@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <script
+      type="module"
+      data-stencil
+      data-resources-url="/build/"
+      data-stencil-namespace="component-lib"
+    >
+      import { p as e, b as t } from "/build/p-f03c0e45.js";
+      (() => {
+        const t = import.meta.url,
+          n = {};
+        return "" !== t && (n.resourcesUrl = new URL(".", t).href), e(n);
+      })().then((e) =>
+        t(
+          [
+            [
+              "p-887bf313",
+              [
+                [
+                  1,
+                  "kuba-button",
+                  {
+                    componentId: [1, "component-id"],
+                    handleSubmit: [8, "handle-submit"],
+                  },
+                ],
+              ],
+            ],
+            [
+              "p-ebe843a2",
+              [
+                [
+                  4,
+                  "kuba-input",
+                  {
+                    componentId: [1, "component-id"],
+                    label: [1],
+                    inputType: [1, "input-type"],
+                    value: [1],
+                    required: [8],
+                    min: [8],
+                    max: [8],
+                    maxlength: [8],
+                    pattern: [8],
+                  },
+                ],
+              ],
+            ],
+            [
+              "p-85617062",
+              [
+                [
+                  1,
+                  "kuba-wizard",
+                  { currentPage: [32] },
+                  [
+                    [4, "wizard:previous", "moveLeftEventListener"],
+                    [4, "wizard:next", "moveRightEventListener"],
+                  ],
+                ],
+              ],
+            ],
+            [
+              "p-8ad1aea2",
+              [[1, "my-component", { first: [1], middle: [1], last: [1] }]],
+            ],
+          ],
+          e
+        )
+      );
+    </script>
+    <script nomodule="" src="/build/component-lib.js" data-stencil></script>
+  </head>
+  <body>
+    <my-component
+      first="Stencil"
+      last="'Don't call me a framework' JS"
+    ></my-component>
+  </body>
+</html>

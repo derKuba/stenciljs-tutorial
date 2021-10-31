@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.kuba-input {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+.kuba-input label {
+  margin-right: 30px;
+}
