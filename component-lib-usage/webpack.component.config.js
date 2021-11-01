@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 
 module.exports = {
   entry: "./components/init_kuba_button.js", // Entry File
