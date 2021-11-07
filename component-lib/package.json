@@ -26,6 +26,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "storybook-addon-custom-event-broadcaster": "^1.0.0",
     "@stencil/core": "^2.7.0",
     "@storybook/addon-storysource": "^6.3.12"
   },
