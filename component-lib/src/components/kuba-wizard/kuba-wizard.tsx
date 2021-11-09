@@ -6,23 +6,23 @@ import { Component, Host, h, State, Listen } from '@stencil/core';
   shadow: true,
 })
 export class KubaWizard {
-
   @State() currentPage = 0;
 
-
-  @Listen("wizard:previous", { target: 'document' })
-  moveLeftEventListener() {
+  @Listen('wizard:previous', { target: 'document' })
+  moveLeftEventListener(event) {
+    console.log(event);
     this.moveLeft();
   }
 
-  @Listen("wizard:next", { target: 'document' })
-  moveRightEventListener() {
+  @Listen('wizard:next', { target: 'document' })
+  moveRightEventListener(event) {
+    console.log(event);
     this.moveRight();
   }
 
   moveRight = () => {
     this.currentPage++;
-  }
+  };
 
   moveLeft = () => {
     if (this.currentPage - 1 > 0) {
@@ -30,7 +30,7 @@ export class KubaWizard {
     } else {
       this.currentPage = 0;
     }
-  }
+  };
 
   render() {
     return (
@@ -44,5 +44,4 @@ export class KubaWizard {
       </Host>
     );
   }
-
 }
