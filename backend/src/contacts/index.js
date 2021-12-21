@@ -14,20 +14,34 @@ contactsRouter.post("/contacts", (context) => {
   const { value, error } = contactValidation.validate(context.request.body);
 
   if (error) {
-    context.throw(StatusCodes.BAD_REQUEST, error);
+    context.throw(400, error);
   }
-
   const contactItemIndex = contacts.findIndex((item) => item.id === value.id);
-  if (value.id && contactItemIndex !== -1) {
-    contacts[contactItemIndex] = value;
-  } else {
-    contacts.push({
-      id: create_UUID(),
-      ...value,
-    });
-  }
 
-  context.body = contacts;
+  if (contactItemIndex !== -1) {
+    contacts[contactItemIndex] = value;
+    context.body = contacts[contactItemIndex];
+  } else {
+    const contact = {
+      ...value,
+      id: create_UUID(),
+    };
+    contacts.push(contact);
+    context.body = contact;
+  }
+});
+
+contactsRouter.delete("/contacts/:id", async (ctx) => {
+  const contactItemIndex = contacts.findIndex(
+    (item) => item.id === ctx.params.id
+  );
+
+  if (contactItemIndex === -1) {
+    ctx.status = 404;
+  } else {
+    contacts.splice(contactItemIndex, 1);
+    ctx.status = 200;
+  }
 });
 
 module.exports = contactsRouter;
