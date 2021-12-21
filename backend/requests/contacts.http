@@ -1,0 +1,12 @@
+@apiEndpoint = http://localhost:3000
+
+POST {{apiEndpoint}}/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "4c816419-9653-4975-80dc-33810b61444e",
+  "lastName": "ccc",
+  "firstName": "cccc",
+  "address": "Straße 23"
+}
+
