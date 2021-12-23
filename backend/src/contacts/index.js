@@ -1,6 +1,6 @@
 const Router = require("@koa/router");
 const contactValidation = require("./validation");
-const { v4: uuidv4 } = require("uuid");
+const { v4: uuid } = require("uuid");
 
 const contactsRouter = new Router();
 
@@ -24,7 +24,7 @@ contactsRouter.post("/contacts", (context) => {
   } else {
     const contact = {
       ...value,
-      id: uuidv4(),
+      id: uuid(),
     };
     contacts.push(contact);
     context.body = contact;
