@@ -9,4 +9,8 @@ app.use(cors());
 app.use(bodyParser());
 app.use(contactRouter.routes());
 
+app.use(async (ctx) => {
+  ctx.body = "Hello World";
+});
+
 app.listen(3000);
