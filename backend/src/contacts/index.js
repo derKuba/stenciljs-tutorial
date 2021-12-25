@@ -40,7 +40,7 @@ contactsRouter.delete("/contacts/:id", async (ctx) => {
     ctx.status = 404;
   } else {
     contacts.splice(contactItemIndex, 1);
-    ctx.status = 200;
+    ctx.body = contacts;
   }
 });
 

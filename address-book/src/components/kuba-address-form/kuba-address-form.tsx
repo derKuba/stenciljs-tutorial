@@ -5,7 +5,6 @@ import addressStore from "../../store/address-store";
 import { validate } from "../../validation";
 
 import { KubaInputFunctional } from "../kuba-input/kuba-input-functional";
-import { create_UUID } from "./utils/create-uuid";
 
 @Component({
   tag: "kuba-address-form",
@@ -23,13 +22,11 @@ export class KubaAddressForm {
 
   @Element() element: HTMLFormElement;
 
-
   private onChangeFirstName = ({
     detail: { value },
   }: {
     detail: { value: string };
   }) => {
-
     validate(value);
 
     this.firstNameState = value;
@@ -54,20 +51,16 @@ export class KubaAddressForm {
   }: {
     detail: { value: string };
   }) => {
-
     validate(value);
 
     this.ageState = Number(value);
   };
 
-
-
   private logger = (content: string) => {
     console.log(`logger: ${content}`);
-  }
+  };
 
   connectedCallback() {
-
     addressStore.contacts.forEach((item) => {
       if (item.id === this.match.params.id) {
         this.addressState = item.address;
@@ -80,25 +73,28 @@ export class KubaAddressForm {
     setTimeout(() => this.logger("connectedCallback"), 3000);
   }
 
-
   private onSubmit = async () => {
-
-    const id = this.idState === undefined ? this.match?.params.id ? this.match?.params.id : null : this.idState;
+    const id =
+      this.idState === undefined
+        ? this.match?.params.id
+          ? this.match?.params.id
+          : null
+        : this.idState;
 
     let data = {
       firstName: this.firstNameState,
       lastName: this.lastNameState,
       address: this.addressState,
-      id: id
+      id: id,
     };
 
     const contactResponse = await fetch("http://localhost:3000/contacts", {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
 
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
 
     if (contactResponse.ok) {
@@ -111,7 +107,6 @@ export class KubaAddressForm {
   };
 
   render() {
-
     return (
       <Host>
         <form id="form">
@@ -158,7 +153,12 @@ export class KubaAddressForm {
 
           <br />
 
-          <kuba-button component-id="saveContactButton" handleSubmit={this.onSubmit}>speichern</kuba-button>
+          <kuba-button
+            component-id="saveContactButton"
+            handleSubmit={this.onSubmit}
+          >
+            speichern
+          </kuba-button>
           <hr />
         </form>
       </Host>
