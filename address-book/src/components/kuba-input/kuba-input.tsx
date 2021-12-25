@@ -27,8 +27,6 @@ export class KubaInput {
   @Prop() pattern;
 
   private onInput = (event) => {
-    console.log(event.target.validity)
-
     this.inputEvent.emit({ value: event.target.value });
   };
 

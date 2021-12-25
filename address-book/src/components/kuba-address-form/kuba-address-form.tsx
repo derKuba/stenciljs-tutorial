@@ -81,42 +81,37 @@ export class KubaAddressForm {
   }
 
 
-  private onSubmit = () => {
+  private onSubmit = async () => {
 
-    if (this.match?.params.id === undefined) {
+    const id = this.idState === undefined ? this.match?.params.id ? this.match?.params.id : null : this.idState;
 
-      // einfach nur für den spy test
-      const spyExample = document.getElementById("test");
-      const uuid = create_UUID();
+    let data = {
+      firstName: this.firstNameState,
+      lastName: this.lastNameState,
+      address: this.addressState,
+      id: id
+    };
 
-      addressStore.contacts.push({
-        firstName: this.firstNameState,
-        lastName: this.lastNameState,
-        id: uuid,
-        address: this.addressState,
-      });
-      addressStore.contacts = [...addressStore.contacts];
+    const contactResponse = await fetch("http://localhost:3000/contacts", {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
 
-      this.firstNameState = "";
-      this.lastNameState = "";
-      this.idState = "";
-      this.addressState = "";
-    } else {
-      addressStore.contacts.forEach((contact, index) => {
-        if (contact.id === this.match.params.id) {
-          addressStore.contacts[index] = {
-            ...addressStore.contacts[index],
-            firstName: this.firstNameState,
-            lastName: this.lastNameState,
-            address: this.addressState,
-          };
-        }
-      });
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+
+    if (contactResponse.ok) {
+      const contact = await contactResponse.json();
+      this.addressState = contact.address;
+      this.firstNameState = contact.firstName;
+      this.lastNameState = contact.lastName;
+      this.idState = contact.id;
     }
   };
 
   render() {
-    console.log("form validity", (this.element.shadowRoot.querySelector("#form") as any)?.reportValidity())
+
     return (
       <Host>
         <form id="form">
@@ -135,7 +130,7 @@ export class KubaAddressForm {
             value={this.firstNameState}
             required="true"
             pattern="[a-zA-Z]+"
-          >sdasd</kuba-input>
+          ></kuba-input>
 
           <kuba-input
             componentId="last-name"

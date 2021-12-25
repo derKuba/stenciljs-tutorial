@@ -8,14 +8,22 @@ import addressStore from "../../store/address-store";
   shadow: true,
 })
 export class KubaList {
-  deleteContact = (id: string) => {
-    const filteredArray = addressStore.contacts.filter(
-      (item) => item.id !== id,
-    );
-    addressStore.contacts = filteredArray;
-  };
+
+  deleteContact = async (id: string) => {
+    // const filteredArray = addressStore.contacts.filter(
+    //   (item) => item.id !== id,
+    // );
+    // addressStore.contacts = filteredArray;
+
+    await fetch(`http://localhost:3000/contacts/${id}`, {
+      method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+    });
+  }
+
+
 
   render() {
+
     return (
       <Host>
         <stencil-route-link id="addressbook_new_contact" url="/contact" activeClass="link-active">
@@ -34,7 +42,7 @@ export class KubaList {
             <option value="aktion" />
           </kuba-table-options-head>
           <kuba-table-options-body>
-            {addressStore.contacts.map((row) => [
+            {addressStore.contacts.length > 0 && addressStore.contacts.map((row) => [
               <option value={row.id} />,
               <option value={row.firstName} />,
               <option value={row.lastName} />,
