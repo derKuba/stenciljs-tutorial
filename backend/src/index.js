@@ -1,6 +1,6 @@
 const Koa = require("koa");
 const cors = require("@koa/cors");
-var bodyParser = require("koa-body-parser");
+const bodyParser = require("koa-body-parser");
 
 const contactRouter = require("./contacts");
 
