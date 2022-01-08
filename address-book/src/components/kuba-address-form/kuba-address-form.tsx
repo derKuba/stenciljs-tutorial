@@ -89,12 +89,12 @@ export class KubaAddressForm {
     };
 
     const contactResponse = await fetch("http://localhost:3000/contacts", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      method: "POST",
 
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
+      body: JSON.stringify(data),
     });
 
     if (contactResponse.ok) {
