@@ -2,8 +2,8 @@ import { newSpecPage } from "@stencil/core/testing";
 
 jest.useFakeTimers();
 
-jest.mock('../utils/create-uuid', () => {
-  const originalModule = jest.requireActual('../utils/create-uuid');
+jest.mock("../utils/create-uuid", () => {
+  const originalModule = jest.requireActual("../utils/create-uuid");
   return {
     __esModule: true,
     ...originalModule,
@@ -13,22 +13,19 @@ jest.mock('../utils/create-uuid', () => {
 });
 
 const addressStoreMock = {
-  contacts: []
+  contacts: [],
 };
 jest.mock("../../../store/address-store", () => ({
   __esModule: true,
-  default: addressStoreMock
+  default: addressStoreMock,
 }));
 
 import { KubaAddressForm } from "../kuba-address-form";
 
-
 describe("kuba-address-form", () => {
-
   beforeEach(() => {
     addressStoreMock.contacts = [];
-
-  })
+  });
 
   it("renders", async () => {
     const page = await newSpecPage({
@@ -45,46 +42,62 @@ describe("kuba-address-form", () => {
       html: `<kuba-address-form></kuba-address-form>`,
     });
 
-    console.log(page.body.querySelector("kuba-address-form").shadowRoot.querySelector("kuba-button").innerHTML); // möglich! output: speichern
+    console.log(
+      page.body
+        .querySelector("kuba-address-form")
+        .shadowRoot.querySelector("kuba-button").innerHTML,
+    ); // möglich! output: speichern
     // page.body.querySelector("kuba-address-form").shadowRoot.querySelector("kuba-button").shadowRoot // undefined
 
     expect(true).toBe(true);
   });
 
-
   it("should submit the form on new Contact", async () => {
     const addressForm = new KubaAddressForm();
     addressForm.firstNameState = "Max";
     addressForm.lastNameState = "Muster";
-    addressForm.addressState = "HalloWeltWeg 23"
+    addressForm.addressState = "HalloWeltWeg 23";
     addressForm.onSubmit();
 
-    expect(addressStoreMock.contacts).toEqual([{ "address": "HalloWeltWeg 23", "firstName": "Max", "id": "uuid", "lastName": "Muster" }]);
+    expect(addressStoreMock.contacts).toEqual([
+      {
+        address: "HalloWeltWeg 23",
+        firstName: "Max",
+        id: "uuid",
+        lastName: "Muster",
+      },
+    ]);
   });
 
   it("should submit the form on Contact edit", async () => {
-
     addressStoreMock.contacts.push({
       id: "14",
       firstName: "Max",
       lastName: "Muster",
-      address: "Musterstraße 44"
-    })
+      address: "Musterstraße 44",
+    });
 
     const addressForm = new KubaAddressForm();
 
     addressForm.match = {
       ...addressForm.match,
       params: {
-        id: "14"
-      }
-    }
+        id: "14",
+      },
+    };
     addressForm.firstNameState = "Maximilian";
     addressForm.lastNameState = "Neumuster";
-    addressForm.addressState = "Musterstraße 44"
+    addressForm.addressState = "Musterstraße 44";
     addressForm.onSubmit();
 
-    expect(addressStoreMock.contacts).toEqual([{ "address": "Musterstraße 44", "firstName": "Maximilian", "id": "14", "lastName": "Neumuster" }]);
+    expect(addressStoreMock.contacts).toEqual([
+      {
+        address: "Musterstraße 44",
+        firstName: "Maximilian",
+        id: "14",
+        lastName: "Neumuster",
+      },
+    ]);
   });
 
   it("should use a spy", async () => {
@@ -95,7 +108,6 @@ describe("kuba-address-form", () => {
     expect(documentSpy).toBeCalled();
     expect(documentSpy).toBeCalledWith("test");
   });
-
 
   it("should trigger onChangeFirstName", async () => {
     const addressForm = new KubaAddressForm();
@@ -119,37 +131,36 @@ describe("kuba-address-form", () => {
   });
 
   it("should trigger connectedCallback", async () => {
-
     const loggerMock = jest.fn();
     addressStoreMock.contacts.push({
       id: "23",
       firstName: "Max",
       lastName: "Muster",
-      address: "Musterstraße 44"
-    })
+      address: "Musterstraße 44",
+    });
     const addressForm = new KubaAddressForm();
     addressForm.logger = loggerMock;
 
     addressForm.match = {
       ...addressForm.match,
       params: {
-        id: "10"
-      }
-    }
+        id: "10",
+      },
+    };
     addressForm.connectedCallback();
 
     addressForm.match = {
       ...addressForm.match,
       params: {
-        id: "23"
-      }
-    }
+        id: "23",
+      },
+    };
     addressForm.connectedCallback();
 
-    expect(addressForm.addressState = "Musterstraße 44");
-    expect(addressForm.firstNameState = "Max");
-    expect(addressForm.lastNameState = "Muster");
-    expect(addressForm.idState = "23");
+    expect((addressForm.addressState = "Musterstraße 44"));
+    expect((addressForm.firstNameState = "Max"));
+    expect((addressForm.lastNameState = "Muster"));
+    expect((addressForm.idState = "23"));
 
     jest.runAllTimers();
 

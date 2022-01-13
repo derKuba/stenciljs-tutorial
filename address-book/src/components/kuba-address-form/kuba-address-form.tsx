@@ -20,7 +20,7 @@ export class KubaAddressForm {
 
   @Prop() match: MatchResults;
 
-  @Element() element: HTMLFormElement;
+  @Element() element: HTMLKubaAddressFormElement;
 
   private onChangeFirstName = ({
     detail: { value },

@@ -4,7 +4,6 @@ import { KubaTableAttributes } from "../kuba-table-attributes";
 
 describe("kuba-table-attributes", () => {
   it("renders", async () => {
-
     const head = ["id", "Name", "Vorname"];
     const body = [
       ["1", "Max", "Muster"],

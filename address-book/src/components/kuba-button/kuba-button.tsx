@@ -6,7 +6,6 @@ import { Component, Host, h, Prop } from "@stencil/core";
   shadow: true,
 })
 export class KubaButton {
-
   @Prop() componentId: string;
 
   @Prop() handleSubmit;

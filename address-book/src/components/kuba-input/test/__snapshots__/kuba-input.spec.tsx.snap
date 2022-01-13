@@ -13,3 +13,16 @@ exports[`kuba-input renders 1`] = `
   {}} value={""} &gt;
 </kuba-input>
 `;
+
+exports[`kuba-input renders with toMatchSnapshot 1`] = `
+<kuba-input componentid="last-name" label="Nachname:" oninputevent="{()=">
+  <!---->
+  <div class="kuba-input">
+    <label>
+      Nachname:
+    </label>
+    <input type="text">
+  </div>
+  {}} value={""} &gt;
+</kuba-input>
+`;

@@ -31,14 +31,13 @@ export class KubaInput {
   };
 
   render() {
-
     const attributes = {
       required: this.required,
       min: this.min,
       max: this.max,
       maxlength: this.maxlength,
       pattern: this.pattern,
-    }
+    };
 
     return (
       <Host>
